@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP Browser Client</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🤖 MCP Browser Client</h1>
+      <div class="status" id="status">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">未连接</span>
+      </div>
+    </header>
+    
+    <main>
+      <!-- 连接配置 -->
+      <section class="section">
+        <h2>服务器连接</h2>
+        <div class="input-group">
+          <input 
+            type="text" 
+            id="serverUrl" 
+            placeholder="ws://localhost:3000"
+            value="ws://localhost:3000"
+          >
+          <button id="connectBtn" class="btn btn-primary">连接</button>
+        </div>
+      </section>
+      
+      <!-- 快速操作 -->
+      <section class="section">
+        <h2>快速操作</h2>
+        <div class="button-group">
+          <button id="snapshotBtn" class="btn">📸 获取快照</button>
+          <button id="screenshotBtn" class="btn">🖼️ 截图</button>
+          <button id="consoleBtn" class="btn">📝 Console</button>
+          <button id="networkBtn" class="btn">🌐 Network</button>
+        </div>
+      </section>
+      
+      <!-- 已注册工具 -->
+      <section class="section">
+        <h2>已注册工具</h2>
+        <div id="toolsList" class="tools-list">
+          <span class="loading">加载中...</span>
+        </div>
+      </section>
+      
+      <!-- 结果显示 -->
+      <section class="section" id="resultSection" style="display: none;">
+        <h2>执行结果</h2>
+        <pre id="resultOutput"></pre>
+      </section>
+    </main>
+    
+    <footer>
+      <p>Version 0.1.0 | <a href="#" id="docsLink">文档</a></p>
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
+
+
+
+
+
+

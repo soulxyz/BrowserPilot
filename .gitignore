@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+*.exe
+*.app
+
+# Logs
+*.log
+debug*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Package files
+*.zip
+*.tar.gz
+*.rar

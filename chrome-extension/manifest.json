@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "MCP Browser Client",
+  "version": "0.1.0",
+  "description": "Chrome Extension MCP Client for browser automation and development",
+  
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "debugger",
+    "webRequest",
+    "webNavigation",
+    "storage",
+    "scripting",
+    "downloads",
+    "bookmarks",
+    "history",
+    "cookies"
+  ],
+  
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/injector.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  
+  "action": {
+    "default_popup": "ui/popup/popup.html"
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["injected/page-context.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
+

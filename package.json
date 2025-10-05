@@ -1,0 +1,50 @@
+{
+  "name": "mcp-browser-control",
+  "version": "1.1.0",
+  "description": "MCP Server for Browser Control - Connect Cursor AI to Chrome Extension",
+  "main": "simple-server/server.js",
+  "bin": {
+    "mcp-browser": "simple-server/server.js"
+  },
+  "scripts": {
+    "start": "node simple-server/server.js",
+    "start:stdio": "node simple-server/server.js --stdio-only",
+    "dev": "node simple-server/server.js",
+    "build": "pkg simple-server/server.js --targets node18-win-x64 --output dist/MCP-Browser-Win.exe --compress GZip",
+    "build:all": "pkg simple-server/server.js --targets node18-win-x64,node18-macos-x64,node18-linux-x64 --output dist/MCP-Browser --compress GZip",
+    "build:win": "pkg simple-server/server.js --targets node18-win-x64 --output dist/MCP-Browser-Win.exe --compress GZip",
+    "build:mac": "pkg simple-server/server.js --targets node18-macos-x64 --output dist/MCP-Browser-Mac --compress GZip",
+    "build:linux": "pkg simple-server/server.js --targets node18-linux-x64 --output dist/MCP-Browser-Linux --compress GZip",
+    "package": "npm run build:win && node scripts/create-release.js"
+  },
+  "pkg": {
+    "assets": [
+      "node_modules/ws/**/*"
+    ],
+    "targets": [
+      "node18-win-x64"
+    ],
+    "outputPath": "dist",
+    "compress": "GZip"
+  },
+  "keywords": [
+    "mcp",
+    "cursor",
+    "browser",
+    "automation",
+    "chrome-extension"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
+

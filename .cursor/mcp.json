@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "browser-control": {
+      "command": "node",
+      "args": ["simple-server/server.js", "--stdio-only"],
+      "env": {}
+    }
+  }
+}
+
+    
